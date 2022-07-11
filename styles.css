@@ -1,3 +1,9 @@
+:root {
+    --main-color: #1F232C;
+    --highlight-light: #DFD6D1;
+    --highlight-dark: #83746E;
+
+}
 body {
     display: grid;
     height: 100vh;
@@ -6,15 +12,134 @@ body {
     grid-template-rows: 1fr 10fr 1fr;
     justify-content: center;
     align-items: center;
+    background-color: var(--main-color);
+}
+header, footer {
+    background-color: var(--highlight-dark);
+    height: 100%;
+}
+#main-content {
+    background-color: var(--highlight-light);
+    height: 100%;
 }
 #modal {
     display: none;
+    flex-direction: column;
+    align-items: flex-end;
     position: fixed;
     left: 50%;
     top: 50%;
     height: fit-content;
     width: fit-content;
     z-index: 1;
-    background-color: blue;
+    background-color: yellow;
+    padding: 20px;
+    padding-top: 15px;
 
+}
+#close-modal {
+    width: fit-content;
+    padding-right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+}
+#form-layout > div {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+#form-layout > :last-child {
+    display: flex;
+}
+#modal-submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#modal-submit > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input {
+    height: 25px;
+    border: none;
+    border-radius: 8px;
+}
+button[type="submit"] {
+    width: 50%;
+    border: none;
+}
+button,
+button *,
+button :after,
+button :before,
+button:after,
+button:before {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: button;
+  background-color: var(--main-color);
+  background-image: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  -webkit-mask-image: -webkit-radial-gradient(var(--main-color), var(--highlight-light));
+  mask-image: none;
+}
+button:disabled {
+  cursor: default;
+}
+button:-moz-focusring {
+  outline: auto;
+}
+button svg {
+  display: block;
+}
+button [hidden] {
+  display: none;
+}
+button {
+  border: none;
+  border-radius: 999px;
+  box-sizing: border-box;
+  display: block;
+  font-weight: 500;
+  position: relative;
+  padding: 10px;
+}
+button:before {
+  --opacity: 0.2;
+  aspect-ratio: 1;
+  background: #fff;
+  border-radius: 50%;
+  content: "";
+  left: 50%;
+  opacity: var(--opacity);
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 100%;
+  z-index: -1;
+}
+button:hover:before {
+  -webkit-animation: enlarge 1s forwards;
+  animation: enlarge 1s forwards;
+}
+@-webkit-keyframes enlarge {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(4);
+  }
+}
+@keyframes enlarge {
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(4);
+  }
 }

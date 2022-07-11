@@ -15,30 +15,33 @@
             <button id="add-book">Add Book</button>
             <!-- Hidden modal -->
             <div id="modal">
-                <span id="close-modal">&times;</span>
+                <div id="close-modal">&times;</div>
                 <form id="form-layout">
                     <div>
-                        <label for="name">Title: </label>
-                        <input class="modal-input" type="text" id="name" name="name">
+                        <label for="name">Title</label>
+                        <input class="modal-input" type="text" id="name" name="name" required>
                     </div>
                     <div>
-                        <label for="author">Author: </label>
-                        <input class="modal-input" type="text" id="author" name="author">
+                        <label for="author">Author</label>
+                        <input class="modal-input" type="text" id="author" name="author" required>
                     </div>
                     <div>
-                        <label for="pages">Pages: </label>
+                        <label for="pages">Pages</label>
                         <input class="modal-input" type="number" id="pages" name="pages">
                     </div>
-                    <div>
-                        <input class="modal-input" type="checkbox" id="status" value="true" name="status">
-                        <label for="status">Have you read the book?</label>
+                    <div id="modal-submit">
+                        <div>
+                            <label for="status">Have you read the book?</label>
+                            <input class="modal-input" type="checkbox" id="status" name="status">
+                        </div>
+                        <button id="submit" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
         <!-- Library cards -->
         <div class="card-grid">
-            Grid Goes Here
+
         </div>
     </div>
     <footer>Footer Here</footer>

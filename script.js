@@ -31,14 +31,18 @@ const newBook = new Book('LOTR', 'JRR', 299, false)
 const addBookBtn = document.getElementById('add-book')
 const modal = document.getElementById('modal')
 const modalCloseBtn = document.getElementById('close-modal')
+const submitBtn = document.getElementById('submit')
 
 addBookBtn.addEventListener('click', () => {
-    modal.style.display = 'block'
+    modal.style.display = 'flex'
 })
 modalCloseBtn.addEventListener('click', () => {
     modal.style.display = 'none'
 })
-
+submitBtn.addEventListener('click', () => {
+    
+    modal.style.display = 'none'
+})
 /* Random Testing of fns */
 myLibrary.addBookToLibrary(newBook)
 console.log(myLibrary)
