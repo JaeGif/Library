@@ -4,9 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
     <title>Library</title>
 </head>
 <body>
-    
+    <header> Library Header</header>
+    <!-- The stuff in the middle is a flexible row of cards -->
+    <div id="main-content">
+        <div id="button-bar">
+            <button id="add-book">Add Book</button>
+            <!-- Modal -->
+            <div id="modal">
+                <form>
+                    <label for="name">Title: </label>
+                    <input class="modal-input" type="text" id="name" name="name">
+
+                    <label for="author">Author: </label>
+                    <input class="modal-input" type="text" id="author" name="author">
+                    
+                    <label for="pages">Pages: </label>
+                    <input class="modal-input" type="number" id="pages" name="pages">
+
+                    <input class="modal-input" type="checkbox" id="status" value="true" name="status">
+                    <label for="status">Have you read the book?</label>
+                </form>
+            </div>
+        </div>
+        <div class="card-grid">
+            Grid Goes Here
+        </div>
+    </div>
+    <footer>Footer Here</footer>
 </body>
 </html>

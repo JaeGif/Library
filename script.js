@@ -1,12 +1,13 @@
 // takes UI and constructs new book objects, adding them to the end of the array.
 
-class myLibrary {
+class Library {
     constructor(){
         this.books = []
     } addBookToLibrary(bookObj){
         this.books.push(bookObj)
-    } removeBookFromLibrary(){
-        // remove using associated index
+    } removeBookFromLibrary(bookObj){
+        this.books.filter()
+    } isInLibrary(name) {
     }
 }
 class Book {
@@ -14,22 +15,25 @@ class Book {
         name = 'none',
         author = 'none',
         pages = 0,
-        status = false
+        status = false,
         ){
         this.name = name;
         this.author = author;
         this.pages = pages;
         this.status = status;
-    }
+    } 
 }
 // classes in JS. First instantiate the class as an object, then you can use the methods attached to each class
-const library = new myLibrary()
+const myLibrary = new Library()
 const newBook = new Book('LOTR', 'JRR', 299, false)
-const newBook2 = new Book('LOTR', 'JRR', 299, false)
-const newBook3 = new Book('LOTR', 'JRR', 299, false)
 
-library.addBookToLibrary(newBook)
-library.addBookToLibrary(newBook2)
-library.addBookToLibrary(newBook3)
+/* Open modal on button click */
+const addBookBtn = document.getElementById('add-book')
+const modal = document.getElementById('modal')
+addBookBtn.addEventListener('click', () => {
+    modal.style.display = 'block'
+})
 
-console.log(library)
+/* Random Testing of fns */
+myLibrary.addBookToLibrary(newBook)
+console.log(myLibrary)
