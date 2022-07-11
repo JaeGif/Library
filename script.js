@@ -32,6 +32,7 @@ const addBookBtn = document.getElementById('add-book')
 const modal = document.getElementById('modal')
 const modalCloseBtn = document.getElementById('close-modal')
 const submitBtn = document.getElementById('submit')
+const userInputName = document.getElementById('name')
 
 addBookBtn.addEventListener('click', () => {
     modal.style.display = 'flex'
@@ -40,9 +41,11 @@ modalCloseBtn.addEventListener('click', () => {
     modal.style.display = 'none'
 })
 submitBtn.addEventListener('click', () => {
-    
-    modal.style.display = 'none'
+
+/*     let newBook = new Book()
+ */    modal.style.display = 'none'
 })
 /* Random Testing of fns */
 myLibrary.addBookToLibrary(newBook)
 console.log(myLibrary)
+console.log(userInputName.value)
