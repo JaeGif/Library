@@ -10,27 +10,33 @@
 </head>
 <body>
     <header> Library Header</header>
-    <!-- The stuff in the middle is a flexible row of cards -->
     <div id="main-content">
         <div id="button-bar">
             <button id="add-book">Add Book</button>
-            <!-- Modal -->
+            <!-- Hidden modal -->
             <div id="modal">
-                <form>
-                    <label for="name">Title: </label>
-                    <input class="modal-input" type="text" id="name" name="name">
-
-                    <label for="author">Author: </label>
-                    <input class="modal-input" type="text" id="author" name="author">
-                    
-                    <label for="pages">Pages: </label>
-                    <input class="modal-input" type="number" id="pages" name="pages">
-
-                    <input class="modal-input" type="checkbox" id="status" value="true" name="status">
-                    <label for="status">Have you read the book?</label>
+                <span id="close-modal">&times;</span>
+                <form id="form-layout">
+                    <div>
+                        <label for="name">Title: </label>
+                        <input class="modal-input" type="text" id="name" name="name">
+                    </div>
+                    <div>
+                        <label for="author">Author: </label>
+                        <input class="modal-input" type="text" id="author" name="author">
+                    </div>
+                    <div>
+                        <label for="pages">Pages: </label>
+                        <input class="modal-input" type="number" id="pages" name="pages">
+                    </div>
+                    <div>
+                        <input class="modal-input" type="checkbox" id="status" value="true" name="status">
+                        <label for="status">Have you read the book?</label>
+                    </div>
                 </form>
             </div>
         </div>
+        <!-- Library cards -->
         <div class="card-grid">
             Grid Goes Here
         </div>

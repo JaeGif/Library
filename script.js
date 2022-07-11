@@ -30,8 +30,13 @@ const newBook = new Book('LOTR', 'JRR', 299, false)
 /* Open modal on button click */
 const addBookBtn = document.getElementById('add-book')
 const modal = document.getElementById('modal')
+const modalCloseBtn = document.getElementById('close-modal')
+
 addBookBtn.addEventListener('click', () => {
     modal.style.display = 'block'
+})
+modalCloseBtn.addEventListener('click', () => {
+    modal.style.display = 'none'
 })
 
 /* Random Testing of fns */
