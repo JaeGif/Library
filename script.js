@@ -5,10 +5,9 @@ class Library {
         this.books = []
     } addBookToLibrary(bookObj){
         this.books.push(bookObj)
-    }/*  removeBookFromLibrary(bookObj){
-        this.books.filter()
-    } isInLibrary(name) {
-    } */
+    }/* /*   removeBookFromLibrary(){
+        this.books = this.books.filter() 
+    }*/
 }
 class Book {
     constructor(
@@ -34,17 +33,14 @@ const submitBtn = document.getElementById('submit')
 const addBookForm = document.getElementById('form-layout')
 
 addBookBtn.addEventListener('click', () => {
-/*     addBookForm.reset()
- */    modal.style.display = 'flex'
+    modal.style.display = 'flex'
 })
 modalCloseBtn.addEventListener('click', () => {
     modal.style.display = 'none'
 })
-         // call add book function when form submits
-
-/* submitBtn.addEventListener('click', () => {
+submitBtn.addEventListener('click', () => {
     modal.style.display = 'none'
-}) */
+})
 
 function getBookInfo() {
     const userInputName = document.getElementById("name").value
@@ -57,13 +53,38 @@ function getBookInfo() {
 const addBookObj = (e) => {
     e.preventDefault()
     const newBook = getBookInfo()
-    // if book noot in library, then add to library else =>
+    // if book not in library, then add to library else =>
     myLibrary.addBookToLibrary(newBook)
-    console.log(myLibrary)
+    createCard(newBook)
 }
-
-
+/* const removeBookObj = 
+ */
 addBookForm.onsubmit = addBookObj
 
+function createCard(newBook) {
+    const cardGrid = document.getElementById('main-grid')
+    const newCard = document.createElement('div')
+    newCard.className = 'card'
+    const subDiv = document.createElement('div')
+    const newH3 = document.createElement('h3')
+    const newP = document.createElement('p')
+    const newEm = document.createElement('em')
+    const newRemoveBtn = document.createElement('button')
+    
+    for (let i=0; i<=3; i++){       // append new elements with custom classes
+                                    // so that the text content can be assigned later
+                                    // according to the new className
+        cardGrid.appendChild(newCard)
+        newCard.className = 'card-' + String(i)
 
-/* Random Testing of fns */
+        newCard.appendChild(subDiv)
+        subDiv.appendChild(newH3)
+        newH3.className = 'h3-' + String(i)
+
+        subDiv.appendChild(newP)
+        newP.className = 'p-' + String(i)
+
+        newP.appendChild(newEm)
+        newEm.className = 'em-' + String(i)
+    }
+}
