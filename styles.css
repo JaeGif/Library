@@ -3,6 +3,14 @@
     --highlight-light: #DFD6D1;
     --highlight-dark: #83746E;
 }
+@font-face {
+    font-family: 'Muli';
+    src: url(./fonts/muli-font/Muli-1GDlj.ttf);
+}
+@font-face {
+    font-family: 'MulItalic';
+    src: url(./fonts/muli-font/MuliBoldItalic-rgx08.ttf);
+}
 body {
     display: grid;
     height: 100vh;
@@ -20,6 +28,9 @@ header, footer {
     justify-content: center;
     align-items: center;
     color: black;
+    font-family: 'Muli', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: .8em;
+    line-height: .7;
 }
 #button-bar {
     display: flex;
@@ -58,6 +69,8 @@ img {
     color: #fff;
     padding: 20px;
     padding-top: 15px;
+    font-family: 'Muli', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 8px;
 }
 #close-modal {
     width: fit-content;
@@ -101,22 +114,28 @@ input {
     gap: 5px;
 }
 .card {
-    border: solid 2px var(--main-color);
-    background-color: var(--highlight-light);
+    box-shadow: 3px 3px 5px var(--main-color);
+    background-color: var(--highlight-dark);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    max-width: fit-content;
     padding: 10px;
+    overflow: scroll;
 }
 .card > div {
     display: flex;
     justify-content: flex-start;
     gap: 20px;
+    color: white;
+
 }
 .card h3 {
     line-height: 1;
     font-size: 1em;
+    font-family: 'Muli', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+em {
+    font-family: 'MulItalic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #remove-book-container {
     display: flex;
@@ -125,8 +144,8 @@ input {
     height: 100%;
 }
 #remove-book {
-    background-color: var(--highlight-dark);
-    color: var(--main-color);
+    background-color: var(--main-color);
+    color: white;
 }
 button[type="submit"] {
     width: 50%;
