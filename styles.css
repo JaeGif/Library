@@ -2,7 +2,6 @@
     --main-color: #1F232C;
     --highlight-light: #DFD6D1;
     --highlight-dark: #83746E;
-
 }
 body {
     display: grid;
@@ -17,7 +16,19 @@ body {
 header, footer {
     background-color: var(--highlight-dark);
     height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
 }
+a, a:link, a:visited { 
+    text-decoration: none;
+    color: black;
+}
+img {
+    margin-bottom: -15px;
+}
+
 #main-content {
     background-color: var(--highlight-light);
     height: 100%;
