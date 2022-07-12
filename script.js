@@ -105,8 +105,11 @@ function createCard(newBook) {
         statusLoud.textContent = 'Unfinished'
     }
 
-    newRemoveBtn.addEventListener('click', () => {
-        myLibrary.removeBookFromLibrary(newRemoveBtn.id)
+    newRemoveBtn.addEventListener('click', () =>{
+        if (newRemoveBtn.id === titleLoud.textContent) {
+            newCard.remove()
+            myLibrary.removeBookFromLibrary(newRemoveBtn.id)
+        }
     })
 
     cardGrid.appendChild(newCard)
