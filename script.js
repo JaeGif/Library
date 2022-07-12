@@ -1,13 +1,13 @@
-// takes UI and constructs new book objects, adding them to the end of the array.
-
+// data structures
 class Library {
     constructor(){
         this.books = []
-    } addBookToLibrary(bookObj){
+    } addBookToLibrary(bookObj) {
         this.books.push(bookObj)
-    }/* /*   removeBookFromLibrary(){
-        this.books = this.books.filter() 
-    }*/
+    } removeBookFromLibrary(buttonClass) {
+        this.books = this.books.filter(book => book.name != buttonClass)
+        console.log(myLibrary)
+    }
 }
 class Book {
     constructor(
@@ -23,7 +23,7 @@ class Book {
     } 
 }
 // classes in JS. First instantiate the class as an object, then you can use the methods attached to each class
-const myLibrary = new Library()
+let myLibrary = new Library()
 
 /* Open modal on button click */
 const addBookBtn = document.getElementById('add-book')
@@ -36,6 +36,7 @@ addBookBtn.addEventListener('click', () => {
     modal.style.display = 'flex'
 })
 modalCloseBtn.addEventListener('click', () => {
+    addBookForm.reset()
     modal.style.display = 'none'
 })
 submitBtn.addEventListener('click', () => {
@@ -53,38 +54,70 @@ function getBookInfo() {
 const addBookObj = (e) => {
     e.preventDefault()
     const newBook = getBookInfo()
-    // if book not in library, then add to library else =>
     myLibrary.addBookToLibrary(newBook)
     createCard(newBook)
+    addBookForm.reset()
 }
-/* const removeBookObj = 
- */
+
 addBookForm.onsubmit = addBookObj
 
 function createCard(newBook) {
     const cardGrid = document.getElementById('main-grid')
     const newCard = document.createElement('div')
     newCard.className = 'card'
-    const subDiv = document.createElement('div')
-    const newH3 = document.createElement('h3')
-    const newP = document.createElement('p')
-    const newEm = document.createElement('em')
+
+    const subDivTitle = document.createElement('div')
+    const subDivAuthor = document.createElement('div')
+    const subDivPages = document.createElement('div')
+    const subDivRead = document.createElement('div')
+    const subDivButton = document.createElement('div')
+    subDivButton.id = 'remove-book-container'
+
+
+    const newTitle = document.createElement('h3')
+    const newAuthor = document.createElement('h3')
+    const newPages = document.createElement('h3')
+    const newStatus = document.createElement('h3')
+
+    const titleLoud = document.createElement('p')
+    const authorLoud = document.createElement('p')
+    const pagesLoud = document.createElement('p')
+    const statusLoud = document.createElement('p')
+
     const newRemoveBtn = document.createElement('button')
-    
-    for (let i=0; i<=3; i++){       // append new elements with custom classes
-                                    // so that the text content can be assigned later
-                                    // according to the new className
-        cardGrid.appendChild(newCard)
-        newCard.className = 'card-' + String(i)
+    newRemoveBtn.className = titleLoud.textContent
+    newRemoveBtn.setAttribute('name', 'remove')
 
-        newCard.appendChild(subDiv)
-        subDiv.appendChild(newH3)
-        newH3.className = 'h3-' + String(i)
+    newTitle.textContent = 'Title:'
+    newAuthor.textContent = 'Author:'
+    newPages.textContent = 'Pages:'
+    newStatus.textContent = 'Status:'
+    newRemoveBtn.textContent = 'Remove'
 
-        subDiv.appendChild(newP)
-        newP.className = 'p-' + String(i)
+    titleLoud.textContent = newBook.name
+    authorLoud.textContent = newBook.author
+    pagesLoud.textContent = newBook.pages
+    newRemoveBtn.id = newBook.name
 
-        newP.appendChild(newEm)
-        newEm.className = 'em-' + String(i)
+    if (newBook.status == true) {       // check if book was read
+        statusLoud.textContent = 'Completed'
+    } else {
+        statusLoud.textContent = 'Unfinished'
     }
+
+    newRemoveBtn.addEventListener('click', () => {
+        myLibrary.removeBookFromLibrary(newRemoveBtn.id)
+    })
+
+    cardGrid.appendChild(newCard)
+    newCard.appendChild(subDivTitle)        // appendChild applies a single node only
+    subDivTitle.append(newTitle, titleLoud)     // append applies a set of nodes!
+    newCard.appendChild(subDivAuthor)
+    subDivAuthor.append(newAuthor, authorLoud)
+    newCard.appendChild(subDivPages)
+    subDivPages.append(newPages, pagesLoud)
+    newCard.appendChild(subDivRead)
+    subDivRead.append(newStatus, statusLoud)
+    newCard.appendChild(subDivButton)
+    subDivButton.appendChild(newRemoveBtn)
 }
