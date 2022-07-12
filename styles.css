@@ -2,6 +2,7 @@
     --main-color: #1F232C;
     --highlight-light: #DFD6D1;
     --highlight-dark: #83746E;
+
 }
 body {
     display: grid;
