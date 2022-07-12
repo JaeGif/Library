@@ -32,7 +32,8 @@ header, footer {
     height: fit-content;
     width: fit-content;
     z-index: 1;
-    background-color: yellow;
+    background-color: var(--main-color);
+    color: #fff;
     padding: 20px;
     padding-top: 15px;
 
@@ -42,7 +43,7 @@ header, footer {
     padding-right: 10px;
     font-size: 24px;
     font-weight: bold;
-    color: black;
+    color: #fff;
     cursor: pointer;
 }
 #form-layout > div {
