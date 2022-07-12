@@ -2,7 +2,6 @@
     --main-color: #1F232C;
     --highlight-light: #DFD6D1;
     --highlight-dark: #83746E;
-
 }
 body {
     display: grid;
@@ -80,6 +79,20 @@ input {
     height: 25px;
     border: none;
     border-radius: 8px;
+}
+.card-grid {
+    border: solid black 2px;
+    height: 93%;
+    overflow-y: scroll;
+    grid-auto-flow: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 50%;
+}
+.card-grid > div {
+    border: solid 2px var(--main-color);
+    background-color: var(--highlight-light);
+    padding: 10px;
 }
 button[type="submit"] {
     width: 50%;
