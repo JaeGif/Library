@@ -6,7 +6,6 @@ class Library {
         this.books.push(bookObj)
     } removeBookFromLibrary(buttonClass) {
         this.books = this.books.filter(book => book.name != buttonClass)
-        console.log(myLibrary)
     }
 }
 class Book {
@@ -59,8 +58,6 @@ const addBookObj = (e) => {
     addBookForm.reset()
 }
 
-addBookForm.onsubmit = addBookObj
-
 function createCard(newBook) {
     const cardGrid = document.getElementById('main-grid')
     const newCard = document.createElement('div')
@@ -70,28 +67,24 @@ function createCard(newBook) {
     const subDivAuthor = document.createElement('div')
     const subDivPages = document.createElement('div')
     const subDivRead = document.createElement('div')
-    const subDivButton = document.createElement('div')
-    subDivButton.id = 'remove-book-container'
+    subDivRead.className = 'button-container'
 
 
     const newTitle = document.createElement('h3')
     const newAuthor = document.createElement('h3')
     const newPages = document.createElement('h3')
-    const newStatus = document.createElement('h3')
 
     const titleLoud = document.createElement('p')
     const authorLoud = document.createElement('p')
     const pagesLoud = document.createElement('p')
-    const statusLoud = document.createElement('p')
 
+    const newStatusUpdate = document.createElement('button')
     const newRemoveBtn = document.createElement('button')
-    newRemoveBtn.className = titleLoud.textContent
-    newRemoveBtn.setAttribute('name', 'remove')
+    newStatusUpdate.className = 'status'
 
     newTitle.textContent = 'Title:'
     newAuthor.textContent = 'Author:'
     newPages.textContent = 'Pages:'
-    newStatus.textContent = 'Status:'
     newRemoveBtn.textContent = 'Remove'
 
     titleLoud.textContent = newBook.name
@@ -99,17 +92,24 @@ function createCard(newBook) {
     pagesLoud.textContent = newBook.pages
     newRemoveBtn.id = newBook.name
 
-    if (newBook.status == true) {       // check if book was read
-        statusLoud.textContent = 'Completed'
+    if (newBook.status == true) {
+        newStatusUpdate.textContent = 'Finished'
+        newStatusUpdate.className = 'read'
     } else {
-        statusLoud.textContent = 'Unfinished'
+        newStatusUpdate.textContent = 'Unfinished'
+        newStatusUpdate.className = 'unread'
     }
 
-    newRemoveBtn.addEventListener('click', () =>{
-        if (newRemoveBtn.id === titleLoud.textContent) {
+    newRemoveBtn.addEventListener('click', () => {      // if button clicked remove
+        if (newRemoveBtn.id === titleLoud.textContent) { // the bookObj and the card
             newCard.remove()
             myLibrary.removeBookFromLibrary(newRemoveBtn.id)
         }
+    })
+
+/*     newStatusUpdate.addEventListener('click', () => {
+        if (newBook.status === true) {
+        } */
     })
 
     cardGrid.appendChild(newCard)
@@ -120,7 +120,7 @@ function createCard(newBook) {
     newCard.appendChild(subDivPages)
     subDivPages.append(newPages, pagesLoud)
     newCard.appendChild(subDivRead)
-    subDivRead.append(newStatus, statusLoud)
-    newCard.appendChild(subDivButton)
-    subDivButton.appendChild(newRemoveBtn)
+    subDivRead.append(newStatusUpdate, newRemoveBtn)
 }
+
+addBookForm.onsubmit = addBookObj
