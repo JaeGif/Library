@@ -65,7 +65,7 @@ const addBookObj = (e) => {
 }
 
 function createCard(newBook) {
-    const cardGrid = document.getElementById('main-grid')
+    emptyLibraryNotice.remove()
     const newCard = document.createElement('div')
     newCard.className = 'card'
 
@@ -143,5 +143,11 @@ function checkBookStatus(bookObj) {
         return statusArray = ['Unfinished', 'unread', false]
     } 
 }
+const cardGrid = document.getElementById('main-grid')
+
+const emptyLibraryNotice = document.createElement('div')
+emptyLibraryNotice.textContent = 'You have no books! Try adding one.'
+cardGrid.appendChild(emptyLibraryNotice)
 
 addBookForm.onsubmit = addBookObj
+
