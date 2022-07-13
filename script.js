@@ -4,16 +4,17 @@ class Library {
         this.books = []
     } addBookToLibrary(bookObj) {
         this.books.push(bookObj)
-    } removeBookFromLibrary(buttonClass) {
-        this.books = this.books.filter(book => book.name != buttonClass)
-    } statusChange(bookObj) {
-        if (this.books[bookObj.status] == true) {
-            return this.books[bookObj.status] = false
-        } else {
-            return this.books[bookObj.status] = true
-        }
+    } removeBookFromLibrary(buttonName) {
+        this.books = this.books.filter(book => book.name != buttonName)
+    } statusChange(buttonName, bookObj) {
+        this.books.forEach((item) => {
+            if (buttonName === item.name) {
+                item.status = bookObj.status
+                console.log(this.books)
+            }
+        })
     }
-} 
+}
 class Book {
     constructor(
         name = 'none',
@@ -103,11 +104,13 @@ function createCard(newBook) {
             const newStatusArray = checkBookStatus(newBook)
             newStatusUpdate.textContent = newStatusArray[0]
             newStatusUpdate.className = newStatusArray[1]
+            myLibrary.statusChange(newRemoveBtn.id, newBook)
         } else {
             newBook.status = true
             const newStatusArray = checkBookStatus(newBook)
             newStatusUpdate.textContent = newStatusArray[0]
             newStatusUpdate.className = newStatusArray[1]
+            myLibrary.statusChange(newRemoveBtn.id, newBook)
         }
     })
 
