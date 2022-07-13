@@ -141,10 +141,12 @@ input {
     line-height: 1;
     font-size: 1em;
     font-family: 'Muli', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
 }
 .card p {
     line-height: 1;
     font-family: 'MulItalic', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--highlight-light);
 }
 .button-container {
     display: flex;
@@ -154,10 +156,10 @@ input {
     width: 100%;
 }
 .read {
-    background-color: green;
+    background-color: #004197;
 }
 .unread {
-    background-color: red;
+    background-color: #DF265E;
 }
 button[type="submit"] {
     width: 50%;
