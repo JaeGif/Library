@@ -38,6 +38,7 @@ const submitBtn = document.getElementById('submit')
 const addBookForm = document.getElementById('form-layout')
 
 addBookBtn.addEventListener('click', () => {
+    emptyLibraryNotice.remove()
     modal.style.display = 'flex'
 })
 modalCloseBtn.addEventListener('click', () => {
@@ -65,7 +66,6 @@ const addBookObj = (e) => {
 }
 
 function createCard(newBook) {
-    emptyLibraryNotice.remove()
     const newCard = document.createElement('div')
     newCard.className = 'card'
 
