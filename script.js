@@ -6,8 +6,14 @@ class Library {
         this.books.push(bookObj)
     } removeBookFromLibrary(buttonClass) {
         this.books = this.books.filter(book => book.name != buttonClass)
+    } statusChange(bookObj) {
+        if (this.books[bookObj.status] == true) {
+            return this.books[bookObj.status] = false
+        } else {
+            return this.books[bookObj.status] = true
+        }
     }
-}
+} 
 class Book {
     constructor(
         name = 'none',
@@ -78,9 +84,8 @@ function createCard(newBook) {
     const authorLoud = document.createElement('p')
     const pagesLoud = document.createElement('p')
 
-    const newStatusUpdate = document.createElement('button')
+    var newStatusUpdate = document.createElement('button')
     const newRemoveBtn = document.createElement('button')
-    newStatusUpdate.className = 'status'
 
     newTitle.textContent = 'Title:'
     newAuthor.textContent = 'Author:'
@@ -92,25 +97,16 @@ function createCard(newBook) {
     pagesLoud.textContent = newBook.pages
     newRemoveBtn.id = newBook.name
 
-    if (newBook.status == true) {
-        newStatusUpdate.textContent = 'Finished'
-        newStatusUpdate.className = 'read'
-    } else {
-        newStatusUpdate.textContent = 'Unfinished'
-        newStatusUpdate.className = 'unread'
-    }
-
-    newRemoveBtn.addEventListener('click', () => {      // if button clicked remove
-        if (newRemoveBtn.id === titleLoud.textContent) { // the bookObj and the card
-            newCard.remove()
-            myLibrary.removeBookFromLibrary(newRemoveBtn.id)
+    newRemoveBtn.addEventListener('click', () => {
+        if (newRemoveBtn.id === titleLoud.textContent) {
+            newCard.remove()        // remove DOM node and it's children
+            myLibrary.removeBookFromLibrary(newRemoveBtn.id)        // remove from data struct
         }
     })
 
-/*     newStatusUpdate.addEventListener('click', () => {
-        if (newBook.status === true) {
-        } */
-    })
+    const statusCheckArray = checkBookStatus(newBook)   // JS doesn't support tuples, packed an array instead
+    newStatusUpdate.textContent = statusCheckArray[0]   // array = [text.content, className, boolean]
+    newStatusUpdate.className = statusCheckArray[1]
 
     cardGrid.appendChild(newCard)
     newCard.appendChild(subDivTitle)        // appendChild applies a single node only
@@ -121,6 +117,15 @@ function createCard(newBook) {
     subDivPages.append(newPages, pagesLoud)
     newCard.appendChild(subDivRead)
     subDivRead.append(newStatusUpdate, newRemoveBtn)
+}
+
+function checkBookStatus(bookObj) {
+    let statusArray = []
+    if (bookObj.status === true) {
+        return statusArray = ['Finished', 'read', true]
+    } else {
+        return statusArray = ['Unfinished', 'unread', false]
+    } 
 }
 
 addBookForm.onsubmit = addBookObj
