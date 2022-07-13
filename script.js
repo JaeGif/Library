@@ -1,16 +1,15 @@
 // data structures
 class Library {
-    constructor(){
+    constructor() {
         this.books = []
     } addBookToLibrary(bookObj) {
         this.books.push(bookObj)
     } removeBookFromLibrary(buttonName) {
         this.books = this.books.filter(book => book.name != buttonName)
-    } statusChange(buttonName, bookObj) {
+    } statusChange(buttonName, bookObj) {       // change status if read
         this.books.forEach((item) => {
             if (buttonName === item.name) {
                 item.status = bookObj.status
-                console.log(this.books)
             }
         })
     }
