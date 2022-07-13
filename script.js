@@ -144,8 +144,8 @@ function checkBookStatus(bookObj) {
     } 
 }
 const cardGrid = document.getElementById('main-grid')
-
 const emptyLibraryNotice = document.createElement('div')
+emptyLibraryNotice.id = 'empty-notice'
 emptyLibraryNotice.textContent = 'You have no books! Try adding one.'
 cardGrid.appendChild(emptyLibraryNotice)
 

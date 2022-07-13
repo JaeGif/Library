@@ -52,7 +52,6 @@ a, a:link, a:visited {
 img {
     margin-bottom: -15px;
 }
-
 #main-content {
     background-color: var(--highlight-light);
     height: 100%;
@@ -107,6 +106,11 @@ input {
     height: 25px;
     border: none;
     border-radius: 8px;
+}
+#empty-notice {
+    grid-column: 2/5;
+    font-size: 3em;
+    font-family: 'Muli', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 .card-grid {
     padding: 5px;
