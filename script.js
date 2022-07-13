@@ -84,7 +84,7 @@ function createCard(newBook) {
     const authorLoud = document.createElement('p')
     const pagesLoud = document.createElement('p')
 
-    var newStatusUpdate = document.createElement('button')
+    const newStatusUpdate = document.createElement('button')
     const newRemoveBtn = document.createElement('button')
 
     newTitle.textContent = 'Title:'
@@ -96,6 +96,20 @@ function createCard(newBook) {
     authorLoud.textContent = newBook.author
     pagesLoud.textContent = newBook.pages
     newRemoveBtn.id = newBook.name
+
+    newStatusUpdate.addEventListener('click', ()=> {        // change status listener added
+        if (checkBookStatus(newBook)[2] === true) {
+            newBook.status = false
+            const newStatusArray = checkBookStatus(newBook)
+            newStatusUpdate.textContent = newStatusArray[0]
+            newStatusUpdate.className = newStatusArray[1]
+        } else {
+            newBook.status = true
+            const newStatusArray = checkBookStatus(newBook)
+            newStatusUpdate.textContent = newStatusArray[0]
+            newStatusUpdate.className = newStatusArray[1]
+        }
+    })
 
     newRemoveBtn.addEventListener('click', () => {
         if (newRemoveBtn.id === titleLoud.textContent) {
