@@ -1,55 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
     <script defer src="script.js"></script>
     <title>My Library</title>
-</head>
-<body>
+  </head>
+  <body>
     <header><h1>My Library</h1></header>
     <div id="main-content">
-        <div id="button-bar">
-            <button id="add-book">Add Book</button>
-            <!-- Hidden modal -->
-            <div id="modal">
-                <div id="close-modal">&times;</div>
-                <form id="form-layout">
-                    <div>
-                        <label for="name">Title</label>
-                        <input class="modal-input" type="text" id="name" name="name" required>
-                    </div>
-                    <div>
-                        <label for="author">Author</label>
-                        <input class="modal-input" type="text" id="author" name="author" required>
-                    </div>
-                    <div>
-                        <label for="pages">Pages</label>
-                        <input class="modal-input" type="number" id="pages" name="pages">
-                    </div>
-                    <div id="modal-submit">
-                        <div>
-                            <label for="status">Have you read the book?</label>
-                            <input class="modal-input" type="checkbox" id="status" name="status">
-                        </div>
-                        <button id="submit" type="submit">Submit</button>
-                    </div>
-                </form>
+      <div id="button-bar">
+        <button id="add-book">Add Book</button>
+        <!-- Hidden modal -->
+        <div id="modal">
+          <div id="close-modal">&times;</div>
+          <form id="form-layout">
+            <div>
+              <label for="name">Title</label>
+              <input
+                class="modal-input"
+                type="text"
+                id="name"
+                name="name"
+                required
+              />
             </div>
+            <div>
+              <label for="author">Author</label>
+              <input
+                class="modal-input"
+                type="text"
+                id="author"
+                name="author"
+                required
+              />
+            </div>
+            <div>
+              <label for="pages">Pages</label>
+              <input
+                class="modal-input"
+                type="number"
+                id="pages"
+                name="pages"
+                required
+              />
+            </div>
+            <div id="modal-submit">
+              <div>
+                <label for="status">Have you read the book?</label>
+                <input
+                  class="modal-input"
+                  type="checkbox"
+                  id="status"
+                  name="status"
+                  required
+                />
+              </div>
+              <button id="submit" type="submit">Submit</button>
+            </div>
+          </form>
         </div>
-        <!-- Library cards -->
-        <div class="card-grid" id="main-grid">
-        </div>
+      </div>
+      <!-- Library cards -->
+      <div class="card-grid" id="main-grid"></div>
     </div>
     <footer>
-        <div>
-            <h3>Copyright 
-                <a href="https://github.com/JaeGif">Jae<img src="./icons/github-icon.png" width="50px" height="auto">
-                </a>2022
-            </h3>
-        </div>
+      <div>
+        <h3>
+          Copyright
+          <a href="https://github.com/JaeGif"
+            >Jae<img
+              src="./icons/github-icon.png"
+              width="50px"
+              height="auto"
+            /> </a
+          >2022
+        </h3>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
